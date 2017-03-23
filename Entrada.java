@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 /**
  * Write a description of class Entrada here.
@@ -37,7 +38,21 @@ public class Entrada
         
     public String toString()
     {
-        return null;
+        String cadenaADevolver = "";
+        cadenaADevolver += "Usuario: " + getUsuario() + "\n";
+        cadenaADevolver += getCantidadMeGusta() + " me gusta\n";
+        
+        long segundosQueHanPasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
+        long minutosQueHanPasadoDesdeCreacion = segundosQueHanPasadoDesdeCreacion / 60;
+        long segundosResiduales = segundosQueHanPasadoDesdeCreacion % 60;
+        
+        cadenaADevolver += "Hace ";
+        if (minutosQueHanPasadoDesdeCreacion > 0) {
+            cadenaADevolver += minutosQueHanPasadoDesdeCreacion + " minutos ";
+        }
+        cadenaADevolver += segundosResiduales + " segundos.\n";                
+        
+        return cadenaADevolver;
     }
     
     public String getUsuario()
@@ -50,7 +65,9 @@ public class Entrada
         return cantidadMeGusta;
     }
     
-
+    public void mostrar()
+    {
+    }
     
 
 }

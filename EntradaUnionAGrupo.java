@@ -23,21 +23,18 @@ public class EntradaUnionAGrupo extends Entrada
     public String toString()
     {
         String cadenaADevolver = "";
-        cadenaADevolver += "El usuario " + getUsuario();
-        cadenaADevolver += " se ha unido al grupo " + grupo + "\n";
-
-        cadenaADevolver += getCantidadMeGusta() + " me gusta";
         
-        long segundosQueHanPasadoDesdeCreacion = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
-        long minutosQueHanPasadoDesdeCreacion = segundosQueHanPasadoDesdeCreacion / 60;
-        long segundosResiduales = segundosQueHanPasadoDesdeCreacion % 60;
+        cadenaADevolver += super.toString();
         
-        cadenaADevolver += "Hace ";
-        if (minutosQueHanPasadoDesdeCreacion > 0) {
-            cadenaADevolver += minutosQueHanPasadoDesdeCreacion + " minutos ";
-        }
-        cadenaADevolver += segundosResiduales + " segundos.\n";         
+        cadenaADevolver += "Se ha unido al grupo " + grupo + "\n";   
         
         return cadenaADevolver;        
     }
+    
+    
+    public void mostrar()
+    {
+        System.out.println(this);
+    }
+        
 }
